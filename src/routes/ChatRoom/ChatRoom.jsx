@@ -23,8 +23,8 @@ export default function ChatRoom() {
     }, [ENDPOINT]);
 
     return (
-        <div>
-            <h1>ChatRoom</h1>
-        </div>
+      <div>
+        <h1>ChatRoom</h1>
+      </div>
     );
 }
