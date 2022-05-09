@@ -1,4 +1,4 @@
-const users = []
+const users = [];
 
 const addUser = ({ id, name, room }) => {
     const user = { id, name, room };
@@ -6,4 +6,4 @@ const addUser = ({ id, name, room }) => {
     return user;
 };
 
-export { addUser }
+export { addUser };

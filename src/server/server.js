@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+const { addUser } = require('./user');
 
 const app = express();
 const server = http.createServer(app);
@@ -23,6 +24,18 @@ server.listen(PORT, () => {
 // Creating the server connection
 io.on('connection', (socket) => {
     console.log('New client connected');
+
+    // User join the room
+    socket.on('join', ({ name, room }, callback) => {
+        const { error, user } = addUser({ id: socket.id, name, room });
+
+        if (error) {
+            return callback(error);
+        }
+        socket.join(user.room);
+        callback(null);
+    });
+
     socket.on('disconnect', () => {
         console.log('Client disconnected');
     });
