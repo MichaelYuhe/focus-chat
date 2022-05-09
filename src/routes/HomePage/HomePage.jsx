@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from '@mui/material/Button'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,21 +10,26 @@ export default function HomePage(props) {
     const [room, setRoom] = useState('');
 
     return (
-        <div className='home-page'>
-            <h1>HomePage</h1>
-            <div>
-                <input type="text" />
-            </div>
-            <div>
-                <input type="text" />
-            </div>
-            <Link
-                onClick={() => { }}
-                to={`/chat?name=${name}&room=${room}`}
-            >
-                <Button>Sign In</Button>
-            </Link>
+      <div className='home-page'>
+        <h1>HomePage</h1>
+        <div>
+          <input type="text" />
         </div>
+        <div>
+          <input type="text" />
+        </div>
+        <Link
+          onClick={() => { }}
+          to={`/chat?name=${name}&room=${room}`}
+            >
+          <Button>Chat</Button>
+        </Link>
+        <Link
+          onClick={() => { }}
+          to={'/sign'}>
+          <Button>Sign</Button>
+        </Link>
+      </div>
     );
 }
 
