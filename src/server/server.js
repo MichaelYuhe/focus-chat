@@ -1,7 +1,13 @@
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
-const { addUser } = require('./user');
+const formatMessage = require('../utils/message')
+const {
+    userJoin,
+    getCurrentUser,
+    userLeave,
+    getRoomUsers
+} = require('./user');
 
 const app = express();
 const server = http.createServer(app);
@@ -14,20 +20,13 @@ const io = socketio(server, {
     }
 });
 
-const PORT = process.env.PORT || 5000;
-
-// Setting up the server
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
-
 // Creating the server connection
 io.on('connection', (socket) => {
     console.log('New client connected');
 
     // User join the room
     socket.on('join', ({ name, room }, callback) => {
-        const { error, user } = addUser({ id: socket.id, name, room });
+        const { error, user } = userJoin({ id: socket.id, name, room });
 
         if (error) {
             return callback(error);
@@ -39,4 +38,11 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('Client disconnected');
     });
+});
+
+const PORT = process.env.PORT || 5000;
+
+// Setting up the server
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
