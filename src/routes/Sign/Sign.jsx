@@ -22,8 +22,8 @@ export default function Sign() {
                   <a href="#" className="social"><i className="fab fa-google"></i></a>
                   <a href="#" className="social"><i className="fab fa-qq"></i></a>
                 </div>
-                <input type="email" placeholder='Email' />
-                <input type="password" placeholder='Password' />
+                <input type="email" placeholder='Your Email Address' />
+                <input type="password" placeholder='Your Password' />
                 <a href="#" onClick={() => { 
                 alert('I\'m sorry to hear that');            
               }}> Forgot your password ?</a>
