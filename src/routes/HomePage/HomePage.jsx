@@ -3,11 +3,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './index.css'
 
-interface Props {
 
-}
-
-export default function HomePage(props: Props) {
+export default function HomePage(props) {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
 

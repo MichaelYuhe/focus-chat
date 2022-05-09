@@ -3,9 +3,6 @@ import queryString from 'query-string';
 import io from 'socket.io-client';
 import './index.css';
 
-interface Props {
-}
-
 export default function ChatRoom() {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
