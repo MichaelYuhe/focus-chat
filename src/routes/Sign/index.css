@@ -214,7 +214,7 @@
     margin: 20px 0;
   }
   
-  .social-container a {
+  .social-container div {
     border: 1px solid #dddddd;
     border-radius: 50%;
     display: inline-flex;
@@ -223,4 +223,5 @@
     margin: 0 5px;
     height: 40px;
     width: 40px;
+    cursor: pointer;
   }

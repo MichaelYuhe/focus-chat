@@ -1,10 +1,19 @@
+import { Button } from '@mui/material';
 import classNames from 'classnames';
 import React, { useState, useEffect } from 'react';
+import { register, login } from './actions/traditional';
+import googleSignIn from './actions/google';
 import './index.css'
 
 export default function Sign() {
-    const [page, setPage] = useState(0)
-
+  const [page, setPage] = useState(0)
+  
+  const [registerEmail, setRegisterEmail] = useState('')
+  const [registerPassword, setRegisterPassword] = useState('')
+  const [loginEmail, setLoginEmail] = useState('')
+  const [loginPassword, setLoginPassword] = useState('')
+  const [name, setName] = useState('')
+  
     return (
       <div className='template'>
         <div className='sign-view'>
@@ -16,33 +25,87 @@ export default function Sign() {
         }>
             <div className='form-container sign-in-container'>
               <form autoComplete='off'>
-                <h1>Sign In</h1>
+                <div className='text-2xl font-bold'>Sign In</div>
+
                 <div className='social-container'>
-                  <a href="#" className="social"><i className="fab fa-weixin"></i></a>
-                  <a href="#" className="social"><i className="fab fa-google"></i></a>
-                  <a href="#" className="social"><i className="fab fa-qq"></i></a>
+                  <div href="" className="social"
+                    onClick={()=>{}}>
+                    <i className="fab fa-github"></i>
+                  </div>
+                  <div href="" className="social"
+                    onClick={()=>{googleSignIn()}}>
+                    <i className="fab fa-google"></i>
+                  </div>
+                  <div href="#" className="social">
+                    <i className="fab fa-weixin"></i>
+                  </div>
                 </div>
-                <input type="email" placeholder='Your Email Address' />
-                <input type="password" placeholder='Your Password' />
+                
+                <input
+                  type="email"
+                  placeholder='Your Email Address'
+                  onChange={(e) => { setLoginEmail(e.target.value) }}
+                />
+
+                <input
+                  type="password"
+                  placeholder='Your Password'
+                  onChange={(e) => { setLoginPassword(e.target.value) }}
+                />
+
                 <a href="#" onClick={() => { 
                 alert('I\'m sorry to hear that');            
-              }}> Forgot your password ?</a>
-                <button>Sign In</button>
+                }}> Forgot your password ?</a>
+                
+                <Button onClick={() => {
+                  login(loginEmail, loginPassword)
+                }}>Sign In</Button>
               </form>
             </div>
                     
             <div className='form-container sign-up-container'>
               <form autoComplete='off'>
-                <h1>Sign Up</h1>
+                <div className='text-2xl font-bold'>Sign Up</div>
+
                 <div className='social-container'>
-                  <a href="#" className="social"><i className="fab fa-weixin"></i></a>
-                  <a href="#" className="social"><i className="fab fa-google"></i></a>
-                  <a href="#" className="social"><i className="fab fa-qq"></i></a>
+                  <div href="" className="social"
+                    onClick={()=>{}}>
+                    <i className="fab fa-github"></i>
+                  </div>
+                  <div href="" className="social"
+                    onClick={()=>{googleSignIn()}}>
+                    <i className="fab fa-google"></i>
+                  </div>
+                  <div href="#" className="social">
+                    <i className="fab fa-weixin"></i>
+                  </div>
                 </div>
-                <input type="text" placeholder='Name' />
-                <input type="email" placeholder='Email' />
-                <input type="password" placeholder='Password' />
-                <button>Sign Up</button>
+
+                <input
+                  type="text"
+                  placeholder='Name'
+                  onChange={(e) => { setName(e.target.value) }}
+                />
+
+                <input
+                  type="email"
+                  placeholder='Email'
+                  onChange={(e) => { setRegisterEmail(e.target.value) }}
+                />
+
+                <input
+                  type="password"
+                  placeholder='Password'
+                  onChange={(e) => {
+                    setRegisterPassword(e.target.value)
+                  }}
+                />
+
+                <Button
+                  onClick={() => {
+                    console.log(registerEmail, registerPassword)
+                    register(registerEmail, registerPassword)
+                }}>Sign Up</Button>
               </form>
             </div>
 
