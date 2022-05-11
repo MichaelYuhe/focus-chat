@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import { app } from '../../../firebase';
 
 const auth = getAuth(app);
-export default function githubSignIn() {
+export default function wechatSignIn() {
     toast('Not supported yet.', {
         icon: '👏',
     });
