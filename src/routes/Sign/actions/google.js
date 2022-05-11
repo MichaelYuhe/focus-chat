@@ -7,11 +7,9 @@ import toast from 'react-hot-toast';
 import { app } from '../../../firebase';
 
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider()
+const provider = new GoogleAuthProvider();
 export default function googleSignIn() {
-    toast('Not supported yet.', {
-        icon: '👏',
-    });
+    toast('Not supported yet.', { icon: '👏', });
     // signInWithPopup(auth, provider)
     //     .then((res) => {
     //         const credential = GoogleAuthProvider.credentialFromResult(res);

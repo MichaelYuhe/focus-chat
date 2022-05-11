@@ -1,16 +1,15 @@
 import React from 'react';
-import Button from '@mui/material/Button'
+import Button from '@mui/material/Button';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 
 export default function HomePage(props) {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
 
     return (
-      <div className='flex w-full h-full justify-center'>
-        <div className='text-xl font-bold'>HomePage</div>
+      <div className="flex w-full h-full justify-center">
+        <div className="text-xl font-bold">HomePage</div>
 
         <Link
           onClick={() => { }}

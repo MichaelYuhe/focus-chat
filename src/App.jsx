@@ -8,7 +8,7 @@ import Profile from './routes/Profile/Profile';
 import Sign from './routes/Sign/Sign';
 
 function App() {
-  
+
   return (
     <Router>
       <Toaster/>
