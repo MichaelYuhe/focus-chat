@@ -5,6 +5,7 @@ import {
 } from 'firebase/auth';
 import toast from 'react-hot-toast';
 import { app } from '../../../firebase';
+import system from '../../../store/system';
 
 
 const auth = getAuth(app);
@@ -15,7 +16,8 @@ export function register(email, password) {
             // Signed in
             const user = userCredential.user;
             // ...
-            toast.success('Sign up successfully!')
+            toast.success('Sign up successfully!');
+            system.session = { user };
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -32,6 +34,7 @@ export function login(email, password) {
             const user = userCredential.user;
             // ...
             toast.success('Sign in successfully!');
+            system.session = { user };
         })
         .catch((error) => {
             const errorCode = error.code;

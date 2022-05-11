@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import React, { useState, useEffect } from 'react';
 import { register, login } from './actions/traditional';
 import googleSignIn from './actions/google';
+import { useNavigate } from 'react-router-dom';
 import './index.css'
 
 export default function Sign() {
@@ -13,6 +14,8 @@ export default function Sign() {
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
   const [name, setName] = useState('')
+
+  const navigate = useNavigate()
   
     return (
       <div className='template'>
@@ -103,8 +106,8 @@ export default function Sign() {
 
                 <Button
                   onClick={() => {
-                    console.log(registerEmail, registerPassword)
                     register(registerEmail, registerPassword)
+                    navigate('../')
                 }}>Sign Up</Button>
               </form>
             </div>
