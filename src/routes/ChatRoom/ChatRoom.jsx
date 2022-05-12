@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import SideBar from '../../components/Chat/SideBar';
+import SideBar from '../../components/Chat/SideBar/SideBar';
 import './index.css';
 
 export default function ChatRoom() {
