@@ -23,7 +23,7 @@ export default function ChatRoom() {
     }, [ENDPOINT]);
 
     return (
-      <div className="w-full h-full p-20">
+      <div className="w-full h-full px-20 py-16">
         <div className="w-full h-full bg-primary-light rounded-3xl">
           <SideBar/>
         </div>
