@@ -8,13 +8,18 @@ import ChatRoom from './routes/ChatRoom/ChatRoom';
 function App() {
 
   return (
-    <Router>
-      <Toaster/>
-      <Routes>
-        <Route path="/" element={<HomePage/>} />
-        <Route path="/chat" element={<ChatRoom />} />
-      </Routes>
-    </Router>
+    <div
+      className="w-full h-full bg-primary-bg-light
+    flex items-center justify-center">
+      <Router>
+        <Toaster/>
+        <Routes>
+          <Route path="/" element={<HomePage/>} />
+          <Route path="/chat" element={<ChatRoom />} />
+        </Routes>
+      </Router>
+    </div>
+
   );
 }
 
