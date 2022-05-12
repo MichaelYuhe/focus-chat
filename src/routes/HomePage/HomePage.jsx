@@ -11,11 +11,10 @@ export default function HomePage(props) {
       <div className="flex w-full h-full justify-center">
         <div className="text-xl font-bold">HomePage</div>
 
-        <Button>Chat</Button>
         <Link
           onClick={() => { }}
-          to={'/sign'}>
-          <Button>Sign</Button>
+          to={'/chat'}>
+          <Button>Chat</Button>
         </Link>
       </div>
     );
