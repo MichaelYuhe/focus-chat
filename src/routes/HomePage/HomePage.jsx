@@ -11,12 +11,7 @@ export default function HomePage(props) {
       <div className="flex w-full h-full justify-center">
         <div className="text-xl font-bold">HomePage</div>
 
-        <Link
-          onClick={() => { }}
-          to={`/chat?name=${name}&room=${room}`}
-            >
-          <Button>Chat</Button>
-        </Link>
+        <Button>Chat</Button>
         <Link
           onClick={() => { }}
           to={'/sign'}>
