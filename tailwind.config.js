@@ -3,9 +3,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary-bg-light': '#e4e1d9',
-        'primary-light': '#f2efe7',
-        'primary-hover-light': '#e6e4d7'
+        'primary-brown': {
+          bg: '#e4e1d9',
+          main: '#f2efe7',
+          hover: '#e6e4d7'
+        },
+
       }
     },
   },

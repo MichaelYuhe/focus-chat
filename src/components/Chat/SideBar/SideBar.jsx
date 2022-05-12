@@ -2,25 +2,31 @@ import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { Icon } from '@mui/material';
 import RoomPreview from './RoomPreview';
+import classNames from 'classnames';
+import ui from '../../../store/ui';
 
 export default function SideBar(props) {
   const [hoverIndex, setHoverIndex] = useState(0);
   const rooms = [
     {
       roomName: 'JavaScript',
-      activePeople: 55
+      activePeople: 55,
+      id: 'x0'
     },
     {
       roomName: 'Python',
-      activePeople: 5
+      activePeople: 5,
+      id: 'x1'
     },
     {
       roomName: 'React',
-      activePeople: 99
+      activePeople: 99,
+      id: 'x2'
     },
     {
       roomName: 'Pokemon',
-      activePeople: 1276
+      activePeople: 1276,
+      id: 'x3'
     },
   ];
     return (
@@ -45,8 +51,11 @@ export default function SideBar(props) {
         <div className="flex flex-col w-full text-sm">
 
           <div
-            className="flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer
-          hover:bg-primary-hover-light">
+            className={classNames(
+                          'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
+                          `hover:bg-primary-${ui.themeColor}-hover`
+            )}
+          >
             <div className="flex items-center">
               <Icon
                 baseClassName="far"
@@ -58,8 +67,11 @@ export default function SideBar(props) {
           </div>
 
           <div
-            className="flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer
-          hover:bg-primary-hover-light">
+            className={classNames(
+              'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
+              `hover:bg-primary-${ui.themeColor}-hover`
+            )}
+          >
             <div className="flex items-center">
               <Icon
                 baseClassName="fas"
@@ -71,8 +83,11 @@ export default function SideBar(props) {
           </div>
 
           <div
-            className="flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer
-          hover:bg-primary-hover-light">
+            className={classNames(
+                        'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
+                        `hover:bg-primary-${ui.themeColor}-hover`
+                      )}
+          >
             <div className="flex items-center">
               <Icon
                 baseClassName="fas"

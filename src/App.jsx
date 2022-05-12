@@ -4,13 +4,17 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './routes/HomePage/HomePage';
 import ChatRoom from './routes/ChatRoom/ChatRoom';
+import classNames from 'classnames';
+import ui from './store/ui';
 
 function App() {
 
   return (
     <div
-      className="w-full h-full bg-primary-bg-light
-    flex items-center justify-center">
+      className={classNames(
+        'w-full h-full flex items-center justify-center',
+        ` bg-primary-${ui.themeColor}-bg`
+      )}>
       <Router>
         <Toaster/>
         <Routes>
