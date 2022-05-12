@@ -7,8 +7,7 @@ module.exports = {
           bg: '#e4e1d9',
           main: '#f2efe7',
           hover: '#e6e4d7'
-        },
-
+        }
       }
     },
   },
