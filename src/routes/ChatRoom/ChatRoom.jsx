@@ -28,8 +28,8 @@ export default function ChatRoom() {
       <div className="w-full h-full px-20 py-16">
         <div
           className={classNames(
-          'w-full h-full rounded-3xl',
-          `bg-primary-${ui.themeColor}-main`
+            'w-full h-full rounded-3xl',
+            ui.themeColor === 'brown' ? 'bg-primary-brown-main' : ''
         )}>
           <SideBar/>
         </div>

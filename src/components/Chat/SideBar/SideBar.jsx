@@ -4,9 +4,12 @@ import { Icon } from '@mui/material';
 import RoomPreview from './RoomPreview';
 import classNames from 'classnames';
 import ui from '../../../store/ui';
+import system from '../../../store/system';
+import { useNavigate } from 'react-router-dom';
 
 export default function SideBar(props) {
   const [hoverIndex, setHoverIndex] = useState(0);
+  const navigate = useNavigate();
   const rooms = [
     {
       roomName: 'JavaScript',
@@ -29,6 +32,9 @@ export default function SideBar(props) {
       id: 'x3'
     },
   ];
+
+  const colors = ['brown', 'night', 'blue', 'cyberpunk'];
+
     return (
       <div
         className="w-1/5 border-r-2 h-full rounded-3xl p-4
@@ -42,18 +48,18 @@ export default function SideBar(props) {
             />
           </div>
           <div className="text-sm font-bold mt-2">
-            Michale Yuhe
+            {system.name}
           </div>
           <div className="text-xs text-gray-500 mb-2">
             status
           </div>
         </div>
-        <div className="flex flex-col w-full text-sm">
 
+        <div className="flex flex-col w-full text-sm">
           <div
             className={classNames(
                           'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-                          `hover:bg-primary-${ui.themeColor}-hover`
+                          ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
             )}
           >
             <div className="flex items-center">
@@ -69,7 +75,7 @@ export default function SideBar(props) {
           <div
             className={classNames(
               'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-              `hover:bg-primary-${ui.themeColor}-hover`
+              ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
             )}
           >
             <div className="flex items-center">
@@ -85,7 +91,7 @@ export default function SideBar(props) {
           <div
             className={classNames(
                         'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-                        `hover:bg-primary-${ui.themeColor}-hover`
+                        ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
                       )}
           >
             <div className="flex items-center">
@@ -98,9 +104,31 @@ export default function SideBar(props) {
             </div>
           </div>
 
+          <div
+            className={classNames(
+                        'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
+                        ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
+            )}
+            onClick={() => {
+              system.name = '';
+              navigate('../');
+            }}
+          >
+            <div className="flex items-center">
+              <Icon
+                baseClassName="fas"
+                className="fa-angle-left"
+                fontSize="small"
+                />
+              <div className="ml-4">Log Out</div>
+            </div>
+          </div>
+
         </div>
+
         <div className="flex flex-col mt-4">
           <div className="font-bold text-lg mb-2">Rooms</div>
+
           {
             rooms.map(room => {
               return <RoomPreview

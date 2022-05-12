@@ -1,5 +1,5 @@
 import React from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './routes/HomePage/HomePage';
@@ -13,7 +13,7 @@ function App() {
     <div
       className={classNames(
         'w-full h-full flex items-center justify-center',
-        ` bg-primary-${ui.themeColor}-bg`
+        ui.themeColor === 'brown' ? 'bg-primary-brown-bg' : ''
       )}>
       <Router>
         <Toaster/>
