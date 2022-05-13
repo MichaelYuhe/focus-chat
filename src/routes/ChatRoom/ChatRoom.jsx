@@ -14,9 +14,9 @@ export default function ChatRoom() {
     const ENDPOINT = 'http://localhost:5000';
 
     useEffect(() => {
+      const socket = io(ENDPOINT);
 
-        const socket = io(ENDPOINT);
-
+        // user enters chat sqaure
         // socket.emit("join", { name, room }, (error) => {
         //     if (error) {
         //         alert(error)
