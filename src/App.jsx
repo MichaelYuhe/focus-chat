@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './routes/HomePage/HomePage';
-import ChatRoom from './routes/ChatRoom/ChatRoom';
+import ChatPage from './routes/ChatPage/ChatPage';
 import classNames from 'classnames';
 import ui from './store/ui';
 
@@ -19,7 +19,7 @@ function App() {
         <Toaster/>
         <Routes>
           <Route path="/" element={<HomePage/>} />
-          <Route path="/chat" element={<ChatRoom />} />
+          <Route path="/chat" element={<ChatPage />} />
         </Routes>
       </Router>
     </div>

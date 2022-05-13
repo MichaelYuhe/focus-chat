@@ -2,36 +2,39 @@ import classNames from 'classnames';
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import SideBar from '../../components/Chat/SideBar/SideBar';
+import ChatRoom from '../../components/Chat/ChatRoom/ChatRoom';
 import ui from '../../store/ui';
 import './index.css';
 
-export default function ChatRoom() {
-    const [name, setName] = useState('');
-    const [room, setRoom] = useState('');
-
-    const [messages, setMessages] = useState([]);
-
+export default function ChatPage() {
     const ENDPOINT = 'http://localhost:5000';
 
-    useEffect(() => {
-      const socket = io(ENDPOINT);
+    const socket = io(ENDPOINT);
 
-        // user enters chat sqaure
-        // socket.emit("join", { name, room }, (error) => {
-        //     if (error) {
-        //         alert(error)
-        //     }
-        // });
+    useEffect(() => {
+      // // user enters chat sqaure
+      // socket.emit('joinRoom', { name, room });
+
+      // // get room and users
+      // socket.on('roomUsers', ({ room, users }) => {
+
+      // });
+
+      // // get messages
+      // socket.on('message', (message) => {
+
+      // });
     }, [ENDPOINT]);
 
     return (
       <div className="w-full h-full px-20 py-16">
         <div
           className={classNames(
-            'w-full h-full rounded-3xl',
+            'w-full h-full rounded-3xl flex',
             ui.themeColor === 'brown' ? 'bg-primary-brown-main' : ''
         )}>
-          <SideBar/>
+          <SideBar />
+          <ChatRoom />
         </div>
       </div>
     );

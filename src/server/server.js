@@ -26,7 +26,7 @@ const botName = 'Room King';
 // Creating the server connection
 io.on('connection', (socket) => {
     // User join the room
-    socket.on('join', ({ name, room }, callback) => {
+    socket.on('joinRoom', ({ name, room }, callback) => {
         const { error, user } = userJoin(socket.id, name, room);
 
         if (error) {

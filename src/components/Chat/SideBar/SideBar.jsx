@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import { Icon } from '@mui/material';
-import RoomPreview from './RoomPreview';
+import RoomInfo from './RoomInfo';
 import classNames from 'classnames';
 import ui from '../../../store/ui';
 import system from '../../../store/system';
@@ -131,7 +131,7 @@ export default function SideBar(props) {
 
           {
             rooms.map(room => {
-              return <RoomPreview
+              return <RoomInfo
                 key={room.roomName}
                 roomName={room.roomName}
                 activePeople={room.activePeople}
