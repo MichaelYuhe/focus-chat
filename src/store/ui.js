@@ -7,6 +7,7 @@ const initState = {
         'blue',
         'cyberpunk'
     ],
+    fontColor: [],
     colorIndex: 0
 };
 

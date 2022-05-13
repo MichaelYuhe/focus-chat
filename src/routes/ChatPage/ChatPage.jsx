@@ -3,14 +3,19 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import SideBar from '../../components/Chat/SideBar/SideBar';
 import ChatRoom from '../../components/Chat/ChatRoom/ChatRoom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import RoomPreview from '../../components/Chat/ChatRoom/RoomPreview';
 import ui from '../../store/ui';
 import './index.css';
+import rooms from '../../store/room';
+import { useSnapshot } from 'valtio';
 
 export default function ChatPage() {
     const ENDPOINT = 'http://localhost:5000';
 
     const socket = io(ENDPOINT);
+
+    const roomsSnap = useSnapshot(rooms);
 
     useEffect(() => {
       // // user enters chat sqaure
@@ -32,10 +37,14 @@ export default function ChatPage() {
         <div
           className={classNames(
             'w-full h-full rounded-3xl flex',
-            ui.colorIndex === 0 ? 'bg-primary-brown-main' : ''
+            // ui.colorIndex === 0 ? 'bg-primary-brown-main' : ''
+            `bg-primary-${ui.themeColor[0]}-main`
         )}>
           <SideBar />
-          <RoomPreview />
+          {roomsSnap.currentRoom ?
+            <ChatRoom /> :
+            <RoomPreview/>
+          }
         </div>
       </div>
     );

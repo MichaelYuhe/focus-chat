@@ -66,6 +66,9 @@ export default function SideBar(props) {
             title="Log Out"
             onClick={() => {
               system.name = '';
+              system.room = undefined;
+              rooms.selectedRoom = undefined;
+              rooms.currentRoom = undefined;
               navigate('../');
             }}
           />
@@ -78,8 +81,7 @@ export default function SideBar(props) {
             roomsSnap.rooms.map(room => {
               return <RoomInfo
                 key={room.roomName}
-                roomName={room.roomName}
-                activePeople={room.activePeople}
+                room={room}
               />;
             })
           }

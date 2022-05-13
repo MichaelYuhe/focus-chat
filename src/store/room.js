@@ -2,9 +2,12 @@ import { proxy } from 'valtio';
 
 const roomModel = {
     roomName: '',
-    configs: {
+    activePeople: 0,
+    intro: '',
+    rules: {
         clockTime: 30,
-        interval: 10
+        interval: 10,
+        maxPeople: 50
     }
 };
 
@@ -13,37 +16,46 @@ const initState = {
         {
             roomName: 'JavaScript',
             activePeople: 50,
-            configs: {
+            intro: 'The best language all over the world. Agree with that and join us.',
+            rules: {
                 clockTime: 50,
-                messageInterval: 10
+                messageInterval: 10,
+                maxPeople: 5000
             }
         },
         {
             roomName: 'Pokemon',
             activePeople: 1720,
-            configs: {
+            intro: '',
+            rules: {
                 clockTime: 50,
-                messageInterval: 10
+                messageInterval: 10,
+                maxPeople: 50
             }
         },
         {
             roomName: 'ZJU',
             activePeople: 990,
-            configs: {
+            intro: '',
+            rules: {
                 clockTime: 50,
-                messageInterval: 10
+                messageInterval: 10,
+                maxPeople: 50
             }
         },
         {
             roomName: 'Suns Fan',
             activePeople: 350,
-            configs: {
+            intro: '',
+            rules: {
                 clockTime: 50,
-                messageInterval: 10
+                messageInterval: 10,
+                maxPeople: 50
             }
         }
     ],
-    selectedRoom: ''
+    selectedRoom: undefined,
+    currentRoom: undefined,
 };
 
 const rooms = proxy(initState);
