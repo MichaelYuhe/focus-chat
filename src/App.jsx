@@ -13,7 +13,7 @@ function App() {
     <div
       className={classNames(
         'w-full h-full flex items-center justify-center',
-        ui.themeColor === 'brown' ? 'bg-primary-brown-bg' : ''
+        ui.colorIndex === 0 ? 'bg-primary-brown-bg' : ''
       )}>
       <Router>
         <Toaster/>

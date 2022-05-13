@@ -17,7 +17,7 @@ export default function HomePage(props) {
         <div
           className={classNames(
             'flex flex-col w-1/3 h-1/3 rounded-3xl justify-around items-center',
-            ui.themeColor === 'brown' ? 'bg-primary-brown-main' : ''
+            ui.colorIndex === 0 ? 'bg-primary-brown-main' : ''
           )}>
           <div className="font-bold text-2xl">Focus Chat</div>
           <input

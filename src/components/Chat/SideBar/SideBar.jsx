@@ -1,35 +1,20 @@
 import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
-import { Icon } from '@mui/material';
 import RoomInfo from './RoomInfo';
 import classNames from 'classnames';
 import ui from '../../../store/ui';
 import system from '../../../store/system';
 import { useNavigate } from 'react-router-dom';
+import rooms from '../../../store/room';
+import { useSnapshot } from 'valtio';
+import Option from './Option';
 
 export default function SideBar(props) {
   const [hoverIndex, setHoverIndex] = useState(0);
+  const [themeColor, setThemeColor] = useState(0);
   const navigate = useNavigate();
-  const rooms = [
-    {
-      roomName: 'JavaScript',
-      activePeople: 55,
-    },
-    {
-      roomName: 'Python',
-      activePeople: 5,
-    },
-    {
-      roomName: 'React',
-      activePeople: 99,
-    },
-    {
-      roomName: 'Pokemon',
-      activePeople: 1276,
-    },
-  ];
 
-  const colors = ['brown', 'night', 'blue', 'cyberpunk'];
+  const roomsSnap = useSnapshot(rooms);
 
     return (
       <div
@@ -52,81 +37,45 @@ export default function SideBar(props) {
         </div>
 
         <div className="flex flex-col w-full text-sm">
-          <div
-            className={classNames(
-                          'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-                          ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
-            )}
-          >
-            <div className="flex items-center">
-              <Icon
-                baseClassName="far"
-                className="fa-comment"
-                fontSize="small"
-                />
-              <div className="ml-4">Create Room</div>
-            </div>
-          </div>
+          <Option
+            icon="fa-comment"
+            title="Create Room"
+            onClick={() => {
 
-          <div
-            className={classNames(
-              'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-              ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
-            )}
-          >
-            <div className="flex items-center">
-              <Icon
-                baseClassName="fas"
-                className="fa-fill"
-                fontSize="small"
-                />
-              <div className="ml-4">Change Color</div>
-            </div>
-          </div>
+            }}
+          />
 
-          <div
-            className={classNames(
-                        'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-                        ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
-                      )}
-          >
-            <div className="flex items-center">
-              <Icon
-                baseClassName="fas"
-                className="fa-dice-three"
-                fontSize="small"
-                />
-              <div className="ml-4">Random Room</div>
-            </div>
-          </div>
+          <Option
+            icon="fa-fill"
+            title="Change Color"
+            onClick={() => {
 
-          <div
-            className={classNames(
-                        'flex justify-between items-center w-full rounded-l-full rounded-r-full px-4 py-2 my-1 cursor-pointer',
-                        ui.themeColor === 'brown' ? 'hover:bg-primary-brown-hover' : ''
-            )}
+            }}
+          />
+
+          <Option
+            icon="fa-dice-three"
+            title="Random Room"
+            onClick={() => {
+
+            }}
+          />
+
+          <Option
+            icon="fa-angle-left"
+            title="Log Out"
             onClick={() => {
               system.name = '';
               navigate('../');
             }}
-          >
-            <div className="flex items-center">
-              <Icon
-                baseClassName="fas"
-                className="fa-angle-left"
-                fontSize="small"
-                />
-              <div className="ml-4">Log Out</div>
-            </div>
-          </div>
+          />
 
         </div>
 
         <div className="flex flex-col mt-4">
           <div className="font-bold text-lg mb-2">Rooms</div>
-
           {
-            rooms.map(room => {
+            roomsSnap.rooms.map(room => {
               return <RoomInfo
                 key={room.roomName}
                 roomName={room.roomName}

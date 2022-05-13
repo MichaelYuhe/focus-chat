@@ -32,7 +32,7 @@ export default function ChatPage() {
         <div
           className={classNames(
             'w-full h-full rounded-3xl flex',
-            ui.themeColor === 'brown' ? 'bg-primary-brown-main' : ''
+            ui.colorIndex === 0 ? 'bg-primary-brown-main' : ''
         )}>
           <SideBar />
           <RoomPreview />
