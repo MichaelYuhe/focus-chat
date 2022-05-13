@@ -14,22 +14,18 @@ export default function SideBar(props) {
     {
       roomName: 'JavaScript',
       activePeople: 55,
-      id: 'x0'
     },
     {
       roomName: 'Python',
       activePeople: 5,
-      id: 'x1'
     },
     {
       roomName: 'React',
       activePeople: 99,
-      id: 'x2'
     },
     {
       roomName: 'Pokemon',
       activePeople: 1276,
-      id: 'x3'
     },
   ];
 

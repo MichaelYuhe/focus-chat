@@ -1,7 +1,7 @@
 import { proxy } from 'valtio';
 
 const roomModel = {
-    name: '',
+    roomName: '',
     configs: {
         clockTime: 30,
         interval: 10

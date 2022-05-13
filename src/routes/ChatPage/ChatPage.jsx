@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import SideBar from '../../components/Chat/SideBar/SideBar';
 import ChatRoom from '../../components/Chat/ChatRoom/ChatRoom';
+import RoomPreview from '../../components/Chat/ChatRoom/RoomPreview';
 import ui from '../../store/ui';
 import './index.css';
 
@@ -34,7 +35,7 @@ export default function ChatPage() {
             ui.themeColor === 'brown' ? 'bg-primary-brown-main' : ''
         )}>
           <SideBar />
-          <ChatRoom />
+          <RoomPreview />
         </div>
       </div>
     );
