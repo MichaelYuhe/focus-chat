@@ -1,7 +1,9 @@
 import React from 'react';
 import Avatar from '@mui/material/Avatar';
 
-export default function Bubble(props) {
+export default function Bubble({ message }) {
+    console.log(message);
+    const { text, time, username } = message;
     return (
       <div className="flex justify-between items-center">
         {/* Avatar */}
@@ -17,7 +19,7 @@ export default function Bubble(props) {
         <div className="flex flex-col justify-between items-start">
           {/* Text */}
           <div className="">
-
+            {text}
           </div>
 
           {/* Time */}

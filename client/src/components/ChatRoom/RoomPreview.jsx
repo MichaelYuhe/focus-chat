@@ -2,6 +2,7 @@ import React from 'react';
 import { useSnapshot } from 'valtio';
 import { Button } from '@mui/material';
 import rooms from '../../store/room';
+import system from '../../store/system';
 
 export default function RoomPreview() {
   const roomsSnap = useSnapshot(rooms);
@@ -41,7 +42,10 @@ export default function RoomPreview() {
 
             <Button
               variant="text"
-              onClick={()=>{rooms.currentRoom = selectedRoom;}}
+              onClick={() => {
+                rooms.currentRoom = selectedRoom;
+                system.room = selectedRoom;
+              }}
               >Enter</Button>
           </div> :
           <div className="w-full h-full flex flex-col items-center justify-center">

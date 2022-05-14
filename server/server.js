@@ -26,16 +26,12 @@ const botName = 'Room King';
 // Creating the server connection
 io.on('connection', (socket) => {
     // User join the room
-    socket.on('joinRoom', ({ name, room }, callback) => {
-        const { error, user } = userJoin(socket.id, name, room);
-
-        if (error) {
-            return callback(error);
-        }
+    socket.on('joinRoom', ({ name, room }) => {
+        const user = userJoin(socket.id, name, room);
 
         socket.join(user.room);
 
-        socket.emit('message', formatMessage(botName, `Welcome to ${user.room} Room!`));
+        socket.emit('message', formatMessage(botName, `Welcome to ${user.room.roomName}!`));
 
         socket.broadcast
             .to(user.room)
@@ -48,10 +44,9 @@ io.on('connection', (socket) => {
             room: user.room,
             users: getRoomUsers(user.room)
         });
-        callback(null);
     });
 
-    socket.on('chatMessage', msg => {
+    socket.on('message', msg => {
         const user = getCurrentUser(socket.id);
 
         io.to(user.room).emit(
@@ -61,23 +56,24 @@ io.on('connection', (socket) => {
     });
 
     // User enter the sqaure
-    socket.on('enter', ({ name }, callback) => {
-        const { error, user } = userEnter(socket.id, name);
-        if (error) {
-            return callback(error);
-        }
-        socket.emit('message', formatMessage(botName, 'Welcome to Focus Chat!'));
-        // socket.broadcast
-        //     .to(user.room)
-        //     .emit(
-        //         'message',
-        //         formatMessage(botName, `${user.name} Has Joined the Room!`)
-        //     );
-        callback(null);
-    });
+    // socket.on('enter', ({ name }, callback) => {
+    //     const { error, user } = userEnter(socket.id, name);
+    //     if (error) {
+    //         return callback(error);
+    //     }
+    //     socket.emit('message', formatMessage(botName, 'Welcome to Focus Chat!'));
+    //     // socket.broadcast
+    //     //     .to(user.room)
+    //     //     .emit(
+    //     //         'message',
+    //     //         formatMessage(botName, `${user.name} Has Joined the Room!`)
+    //     //     );
+    //     callback(null);
+    // });
+
 
     // client disconnect
-    socket.on('disconnect', () => {
+    socket.on('lerveRoom', () => {
         const user = userLeave(socket.id);
 
         if (user) {

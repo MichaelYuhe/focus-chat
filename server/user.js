@@ -1,6 +1,6 @@
 const users = [];
 
-const userJoin = ({ id, name, room }) => {
+exports.userJoin = (id, name, room) => {
     const user = { id, name, room };
 
     users.push(user);
@@ -8,7 +8,7 @@ const userJoin = ({ id, name, room }) => {
     return user;
 };
 
-const userEnter = ({ id, name }) => {
+exports.userEnter = (id, name) => {
     const user = { id, name };
 
     users.push(user);
@@ -16,11 +16,11 @@ const userEnter = ({ id, name }) => {
     return user;
 };
 
-const getCurrentUser = (id) => {
+exports.getCurrentUser = (id) => {
     return users.find(user => user.id === id);
 };
 
-const userLeave = (id) => {
+exports.userLeave = (id) => {
     const index = users.findIndex(user => user.id === id);
 
     if (index !== -1) {
@@ -28,14 +28,7 @@ const userLeave = (id) => {
     }
 };
 
-const getRoomUsers = (room) => {
+exports.getRoomUsers = (room) => {
     return users.filter(user => user.room === room);
 };
 
-exports.modules = {
-    userJoin,
-    userEnter,
-    getCurrentUser,
-    userLeave,
-    getRoomUsers
-};

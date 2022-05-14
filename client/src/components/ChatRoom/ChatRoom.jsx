@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSnapshot } from 'valtio';
 import { Icon } from '@mui/material';
 import io from 'socket.io-client';
@@ -9,6 +9,8 @@ import Bubble from './Bubble';
 export default function ChatRoom() {
   const ENDPOINT = 'http://localhost:5000';
 
+  const [messages, setMessages] = useState([]);
+
   const roomsSnap = useSnapshot(rooms);
   const systemSnap = useSnapshot(system);
 
@@ -16,9 +18,15 @@ export default function ChatRoom() {
 
   const socket = io(ENDPOINT);
 
+  const outputMessage = (message) => {
+    setMessages(messages.concat(message));
+  };
+
   useEffect(() => {
+    const name = systemSnap.name, room = system.room;
+
     // user enters chat sqaure
-    // socket.emit('joinRoom', { systemSnap.name, system.room });
+    socket.emit('joinRoom', ({ name, room }));
 
     // get room and users
     socket.on('roomUsers', ({ room, users }) => {
@@ -27,7 +35,8 @@ export default function ChatRoom() {
 
     // get messages
     socket.on('message', (message) => {
-
+      // console.log(message);
+      outputMessage(message);
     });
   }, [ENDPOINT]);
 
@@ -41,6 +50,7 @@ export default function ChatRoom() {
             onClick={() => {
               rooms.currentRoom = undefined;
               rooms.selectedRoom = undefined;
+              system.room = undefined;
             }}>
             <Icon
               baseClassName="fas"
@@ -62,7 +72,13 @@ export default function ChatRoom() {
           <div className="w-2/3 flex flex-col h-full mr-2">
             {/* Chat */}
             <div className="flex-1 w-full">
-
+              {messages.map((message, index) => {
+                return (
+                  <div key={index}>
+                    <Bubble message={message} />
+                  </div>
+                );
+})}
             </div>
 
             {/* Input */}
