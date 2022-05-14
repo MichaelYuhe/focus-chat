@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSnapshot } from 'valtio';
 import { Button } from '@mui/material';
-import rooms from '../../../store/room';
+import rooms from '../../store/room';
 
 export default function RoomPreview() {
   const roomsSnap = useSnapshot(rooms);
@@ -15,7 +15,7 @@ export default function RoomPreview() {
           <div className="w-full h-full flex flex-col items-center justify-between">
             <div className="flex flex-col w-full items-center">
               <div className="font-bold text-2xl mb-4">{selectedRoom.roomName}</div>
-              <div>{selectedRoom.intro}</div>
+              <div className="whitespace-pre-line">{selectedRoom.intro}</div>
             </div>
 
             <div className="flex w-full justify-between">

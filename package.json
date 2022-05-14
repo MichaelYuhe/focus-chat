@@ -1,68 +1,15 @@
 {
-  "name": "focus-chat",
-  "version": "0.1.0",
-  "author": "MichaelYuhe",
-  "private": true,
-  "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@mui/material": "^5.6.4",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.2.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.0",
-    "@types/node": "^16.11.33",
-    "@types/react": "^18.0.9",
-    "@types/react-dom": "^18.0.3",
-    "@types/socket.io-client": "^3.0.0",
-    "classnames": "^2.3.1",
-    "express": "^4.18.1",
-    "json-server": "^0.17.0",
-    "moment": "^2.29.3",
-    "query-string": "^7.1.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "react-hot-toast": "^2.2.0",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "reactjs-localstorage": "^1.0.1",
-    "socket.io": "^4.5.0",
-    "socket.io-client": "^4.5.0",
-    "valtio": "^1.6.0",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "server": "node server.js",
-    "backend": "nodemon server",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.7",
-    "eslint": "^8.15.0",
-    "eslint-plugin-react": "^7.29.4",
-    "nodemon": "^2.0.16",
-    "postcss": "^8.4.13",
-    "tailwindcss": "^3.0.24"
+    "name": "focus-chat",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+      "client": "cd client && npm start",
+      "server": "cd server && npm run server",
+      "setup": "cd server && npm i && cd ../client && npm i"
+    },
+    "keywords": [],
+    "author": "MichealYuhe",
+    "license": "MIT",
+    "description": ""
   }
-}
+  

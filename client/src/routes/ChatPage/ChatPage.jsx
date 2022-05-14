@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
-import SideBar from '../../components/Chat/SideBar/SideBar';
-import ChatRoom from '../../components/Chat/ChatRoom/ChatRoom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import RoomPreview from '../../components/Chat/ChatRoom/RoomPreview';
+import SideBar from '../../components/SideBar/SideBar';
+import ChatRoom from '../../components/ChatRoom/ChatRoom';
+import RoomPreview from '../../components/ChatRoom/RoomPreview';
 import ui from '../../store/ui';
 import './index.css';
 import rooms from '../../store/room';

@@ -1,5 +1,5 @@
 import React from 'react';
-import rooms from '../../../store/room';
+import rooms from '../../store/room';
 import { toast } from 'react-hot-toast';
 
 export default function RoomInfo({ room }) {

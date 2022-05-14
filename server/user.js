@@ -32,7 +32,7 @@ const getRoomUsers = (room) => {
     return users.filter(user => user.room === room);
 };
 
-export {
+exports.modules = {
     userJoin,
     userEnter,
     getCurrentUser,

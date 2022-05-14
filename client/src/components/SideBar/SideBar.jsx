@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import RoomInfo from './RoomInfo';
 import classNames from 'classnames';
-import ui from '../../../store/ui';
-import system from '../../../store/system';
+import ui from '../../store/ui';
+import system from '../../store/system';
 import { useNavigate } from 'react-router-dom';
-import rooms from '../../../store/room';
+import rooms from '../../store/room';
 import { useSnapshot } from 'valtio';
 import Option from './Option';
 
