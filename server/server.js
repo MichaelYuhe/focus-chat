@@ -31,8 +31,10 @@ io.on('connection', (socket) => {
 
         socket.join(user.room);
 
+        // Welcome message
         socket.emit('message', formatMessage(botName, `Welcome to ${user.room.roomName}!`));
 
+        // Send to other users in the room
         socket.broadcast
             .to(user.room)
             .emit(
@@ -46,7 +48,7 @@ io.on('connection', (socket) => {
         });
     });
 
-    socket.on('message', msg => {
+    socket.on('chatMessage', msg => {
         const user = getCurrentUser(socket.id);
 
         io.to(user.room).emit(
@@ -73,7 +75,7 @@ io.on('connection', (socket) => {
 
 
     // client disconnect
-    socket.on('lerveRoom', () => {
+    socket.on('disconnect', () => {
         const user = userLeave(socket.id);
 
         if (user) {

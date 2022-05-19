@@ -35,7 +35,7 @@ export default function ChatRoom() {
 
     // get messages
     socket.on('message', (message) => {
-      // console.log(message);
+      console.log(message);
       outputMessage(message);
     });
   }, [ENDPOINT]);
