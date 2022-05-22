@@ -2,7 +2,6 @@ import React from 'react';
 import Avatar from '@mui/material/Avatar';
 
 export default function Bubble({ message }) {
-    console.log(message);
     const { text, time, username } = message;
     return (
       <div className="flex justify-between items-center">

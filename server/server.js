@@ -29,26 +29,26 @@ io.on('connection', (socket) => {
     socket.on('joinRoom', ({ name, room }) => {
         const user = userJoin(socket.id, name, room);
 
-        socket.join(user.room);
+        socket.join(user.room.roomName);
 
         // Welcome message
         socket.emit('message', formatMessage(botName, `Welcome to ${user.room.roomName}!`));
 
         // Send to other users in the room
         socket.broadcast
-            .to(user.room)
+            .to(user.room.roomName)
             .emit(
                 'message',
                 formatMessage(botName, `${user.name} Has Joined the Room!`)
             );
 
-        io.to(user.room).emit('roomUsers', {
+        io.to(user.room.roomName).emit('roomUsers', {
             room: user.room,
             users: getRoomUsers(user.room)
         });
     });
 
-    socket.on('chatMessage', msg => {
+    socket.on('sendMessage', msg => {
         const user = getCurrentUser(socket.id);
 
         io.to(user.room).emit(
@@ -56,23 +56,6 @@ io.on('connection', (socket) => {
             formatMessage(user.name, msg)
         );
     });
-
-    // User enter the sqaure
-    // socket.on('enter', ({ name }, callback) => {
-    //     const { error, user } = userEnter(socket.id, name);
-    //     if (error) {
-    //         return callback(error);
-    //     }
-    //     socket.emit('message', formatMessage(botName, 'Welcome to Focus Chat!'));
-    //     // socket.broadcast
-    //     //     .to(user.room)
-    //     //     .emit(
-    //     //         'message',
-    //     //         formatMessage(botName, `${user.name} Has Joined the Room!`)
-    //     //     );
-    //     callback(null);
-    // });
-
 
     // client disconnect
     socket.on('disconnect', () => {
