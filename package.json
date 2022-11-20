@@ -1,15 +1,13 @@
 {
-    "name": "focus-chat",
-    "version": "1.0.0",
-    "main": "index.js",
-    "scripts": {
-      "client": "cd client && npm start",
-      "server": "cd server && npm run server",
-      "setup": "cd server && npm i && cd ../client && npm i"
-    },
-    "keywords": [],
-    "author": "MichealYuhe",
-    "license": "MIT",
-    "description": ""
-  }
-  
+  "name": "focus-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd client && npm start && cd ../server && npm run server",
+    "install": "cd client && npm install && cd ../server && npm install"
+  },
+  "keywords": [],
+  "author": "MichealYuhe",
+  "license": "MIT",
+  "description": ""
+}
