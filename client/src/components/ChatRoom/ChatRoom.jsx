@@ -6,7 +6,7 @@ import system from '../../store/system';
 import Bubble from './Bubble';
 
 export default function ChatRoom() {
-  const ENDPOINT = 'http://localhost:5000';
+  const ENDPOINT = 'http://foucs-chart.zeabur.app:5000';
   const socket = io(ENDPOINT);
 
   const [messages, setMessages] = useState([]);
